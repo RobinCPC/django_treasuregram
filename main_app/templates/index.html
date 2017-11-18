@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TreasureGram</title>
+    </head>
+    <body>
+        <h1>TreasureGram</h1>
+        {% for treasure in treasures %}
+        <p>{{ treasure.name }}</p>
+        {% if treasure.value > 0 %}
+        <p>{{ treasure.value }}</p>
+        {% else %}
+        <p>Unknown</p>
+        {% endif %}
+        <br/>
+        {% endfor %}
+    </body>
+</html>

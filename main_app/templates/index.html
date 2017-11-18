@@ -23,14 +23,16 @@
         <div class="row">
             {% for treasure in treasures|dictsort:"name" %}
             <div class="col-md-4">
-                <div class="treasure panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">{{ treasure.name }}</h2>
+                <a href="/{{ treasure.id }}/">
+                    <div class="treasure panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">{{ treasure.name }}</h2>
+                        </div>
+                        <div class="treasure-photo">
+                            <img src="{% static treasure.img_url %}" alt="" />
+                        </div>
                     </div>
-                    <div class="treasure-photo">
-                        <img src="{% static treasure.img_url %}" alt="" />
-                    </div>
-                </div>
+                </a>
             </div>
             {% if forloop.counter|divisibleby:"3" %}
         </div><br/><div class="row">
@@ -38,5 +40,10 @@
             {% endfor %}
         </div>
         </main>
+        <footer class="footer container text-center" role="contentinfo">
+            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+            © TreasureGram 2017
+            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+        </footer>
     </body>
 </html>

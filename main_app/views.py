@@ -10,3 +10,8 @@ def index(request):
             }
     return render(request, 'index.html', context)
 
+
+def detail(request, treasure_id):
+    treasure = Treasure.objects.get(id=treasure_id)
+    return render(request, 'detail.html', {'treasure' : treasure})
+

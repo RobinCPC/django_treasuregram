@@ -1,49 +1,25 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
-        <link rel="stylesheet" type="text/css"
-                               href="{% static 'bootstrap.min.css' %}" />
-        <link rel="stylesheet" type="text/css"
-                               href="{% static 'style.css' %}" />
-        <title>TreasureGram</title>
-    </head>
-    <body>
-        <!-- add navbar bootstrap -->
-        <nav class="navbar navbar-default navbar-static-top text-center">
-            <a href="/">
-                <img src="{% static 'images/logo.png' %}" alt="TreasureGram">
-            </a>
-        </nav>
-        <!-- content -->
-        <main class="container container--mw700" role="main">
-        <!-- grid for each treasure -->
-        <div class="row">
-            {% for treasure in treasures|dictsort:"name" %}
-            <div class="col-md-4">
-                <a href="/{{ treasure.id }}/">
-                    <div class="treasure panel panel-default">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">{{ treasure.name }}</h2>
-                        </div>
-                        <div class="treasure-photo">
-                            <img src="{% static treasure.img_url %}" alt="" />
-                        </div>
-                    </div>
-                </a>
+{% block content %}
+<!-- grid for each treasure -->
+<div class="row">
+    {% for treasure in treasures|dictsort:"name" %}
+    <div class="col-md-4">
+        <a href="/{{ treasure.id }}/">
+            <div class="treasure panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ treasure.name }}</h2>
+                </div>
+                <div class="treasure-photo">
+                    <img src="{% static treasure.img_url %}" alt="" />
+                </div>
             </div>
-            {% if forloop.counter|divisibleby:"3" %}
-        </div><br/><div class="row">
-            {% endif %}
-            {% endfor %}
-        </div>
-        </main>
-        <footer class="footer container text-center" role="contentinfo">
-            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-            © TreasureGram 2017
-            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-        </footer>
-    </body>
-</html>
+        </a>
+    </div>
+    {% if forloop.counter|divisibleby:"3" %}
+</div><br/><div class="row">
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

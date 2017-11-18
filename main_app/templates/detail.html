@@ -1,72 +1,48 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css"
-                               href="{% static 'bootstrap.min.css' %}" />
-        <link rel="stylesheet" type="text/css"
-                               href="{% static 'style.css' %}" />
-        <title>{{ treasure.name }}</title>
-    </head>
-    <body>
-        <!-- add navbar bootstrap -->
-        <nav class="navbar navbar-default navbar-static-top text-center">
-            <a href="/">
-                <img src="{% static 'images/logo.png' %}" alt="TreasureGram">
-            </a>
-        </nav>
-        <!-- content -->
-        <main class="container container--mw700" role="main">
-        <div class="treasure panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{ treasure.name}}</h3>
-            </div>
-            <div class="panel-body">
-                <div class="treasure-photo-detail">
-                    <img src="{% static treasure.img_url %}" height="200">
-                </div>
-                <table class="treasure-table">
-                    <tr>
-                        <th>
-                            <img src="{% static "images/material-icon.png" %}" />
-                            Material:
-                        </th>
-                        <td>
-                            {{ treasure.material}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <img src="{% static 'images/value-icon.png' %}" />
-                            Value:
-                        </th>
-                        <td>
-                            {% if treasure.value > 0 %}
-                            {{ treasure.value }}
-                            {% else %}
-                            Unknown
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <img src="{% static 'images/location-icon.png' %}" />
-                            Location:
-                        </th>
-                        <td>
-                            {{ treasure.location }}
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        </main>
-        <footer class="footer container text-center" role="contentinfo">
-            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-            © TreasureGram 2017
-            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-        </footer>
-    </body>
-</html>
 
+{% block content %}
+<div class="treasure panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ treasure.name}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="treasure-photo-detail">
+            <img src="{% static treasure.img_url %}" height="200">
+        </div>
+        <table class="treasure-table">
+            <tr>
+                <th>
+                    <img src="{% static "images/material-icon.png" %}" />
+                    Material:
+                </th>
+                <td>
+                    {{ treasure.material}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <img src="{% static 'images/value-icon.png' %}" />
+                    Value:
+                </th>
+                <td>
+                    {% if treasure.value > 0 %}
+                    {{ treasure.value }}
+                    {% else %}
+                    Unknown
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <img src="{% static 'images/location-icon.png' %}" />
+                    Location:
+                </th>
+                <td>
+                    {{ treasure.location }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

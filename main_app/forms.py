@@ -6,5 +6,5 @@ from .models import Treasure
 class TreasureForm(forms.ModelForm):
     class Meta:
         model = Treasure
-        fields = ['name', 'value', 'material', 'location', 'img_url']
+        fields = ['name', 'value', 'material', 'location', 'image']
 

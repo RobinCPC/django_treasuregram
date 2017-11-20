@@ -14,8 +14,17 @@
                     <h3 class="panel-title">{{treasure.name}}</h3>
                 </div>
             </a>
-            <div class="treasure-photo">
-                <img src="{{ treasure.image.url }}" alt="" />
+            <div class="panel-body">
+                <div class="treasure-photo">
+                    <img src="{{ treasure.image.url }}" alt="" />
+                </div>
+                <button id="likes" data-id="{{ treasure.id}}"
+                                   class="btn btn-mini btn-danger glyphicon glyphicon-heart"
+                                   type="button">
+                    {% if treasure.likes > 0 %}
+                    {{ treasure.likes }}
+                    {% endif %}
+                </button>
             </div>
         </div>
     </div>

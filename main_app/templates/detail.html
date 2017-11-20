@@ -43,6 +43,13 @@
                 </td>
             </tr>
         </table>
+        <button id="likes" data-id="{{ treasure.id}}"
+                           class="btn btn-mini btn-danger glyphicon glyphicon-heart"
+                           type="button">
+            {% if treasure.likes > 0 %}
+            {{ treasure.likes }}
+            {% endif %}
+        </button>
     </div>
 </div>
 {% endblock %}

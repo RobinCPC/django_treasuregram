@@ -78,7 +78,7 @@ def register(request):
 
 
 def like_treasure(request):
-    treasure_id = request.GET.get('treasure_id', None)
+    treasure_id = request.POST.get('treasure_id', None)
     likes = 0
     if(treasure_id):
         treasure = Treasure.objects.get(id=int(treasure_id))

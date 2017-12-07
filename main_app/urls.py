@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf import settings
 from django.views.static import serve
 from . import views
@@ -12,6 +12,7 @@ urlpatterns = [
         url(r'^logout/$', views.logout_view, name = 'logout'),
         url(r'^register/$', views.register, name = 'register'),
         url(r'^like_treasure/$', views.like_treasure, name='like_treasure'),
+        url(r'^oauth/', include('social_django.urls', namespace='social')),
         ]
 
 # Add to the bpttom of your file
